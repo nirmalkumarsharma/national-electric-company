@@ -1,0 +1,22 @@
+nec:
+  jwtExpirationMs: 86400000
+  jwtSecret: FnCYIx1G7Xlo7eaRKQVlMNUlwYxHuvyhXJrBHJpCfZhPOiXAhBfKFNKGQVnvhtnshrrJLigw1HWZQ6LAgMBAAE==
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: National Electric Company
+  datasource:
+    url: jdbc:mysql://localhost:3306/national_electric_company?allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: nirmal
+    password: Abcd@1234
+  mvc:
+    servlet:
+      path: /api
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
