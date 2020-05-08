@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 @Service
 public class NECRegistrationServiceImpl implements NECRegistrationService {
@@ -25,8 +26,11 @@ public class NECRegistrationServiceImpl implements NECRegistrationService {
 		necEmployee.setNecName(necEmployeePayload.getNecName());
 		necEmployee.setNecEmail(necEmployeePayload.getNecEmail());
 		necEmployee.setNecPassword(passwordEncoder.encode(necEmployeePayload.getNecPassword()));
-		necEmployeeRepository.save(necEmployee);
-		
+		try {
+			necEmployeeRepository.save(necEmployee);
+		} catch (Exception ex) {
+			throw new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		NECRegistrationResponse necRegistrationResponse = new NECRegistrationResponse();
 		necRegistrationResponse.setStatusCode(HttpStatus.OK.toString());
 		necRegistrationResponse.setMessage("User Registered Successfully");

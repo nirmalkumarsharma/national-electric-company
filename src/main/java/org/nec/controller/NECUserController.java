@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 @RequestMapping("/user")
@@ -37,8 +36,8 @@ public class NECUserController {
 		TokenResponse tokenResponse;
 		try {
 			tokenResponse = necLoginService.authenticateUser(necLoginCred.getEmail(), necLoginCred.getPassword());
-		} catch (JsonProcessingException e) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			throw new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<>(tokenResponse, HttpStatus.OK);
 	}
