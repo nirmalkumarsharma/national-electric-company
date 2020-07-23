@@ -7,7 +7,7 @@ plugins {
 group = 'in.nec'
 version = '1.0'
 
-sourceCompatibility = '11'
+sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 configurations {
@@ -39,10 +39,6 @@ dependencies {
 
 bootJar {
     mainClassName = 'org.nec.NationalElectricCompanyApplication'
-}
-
-test {
-	useJUnitPlatform()
 }
 
 jar {

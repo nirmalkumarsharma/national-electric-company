@@ -11,6 +11,11 @@ spring:
     driver-class-name: org.postgresql.Driver 
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
+    maxActive: 10
+    maxIdle: 5
+    minIdle: 2
+    initialSize: 5
+    removeAbandoned: true
   mvc:
     servlet:
       path: /api
