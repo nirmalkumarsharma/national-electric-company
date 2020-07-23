@@ -6,7 +6,9 @@ plugins {
 
 group = 'in.nec'
 version = '1.0'
+
 sourceCompatibility = '11'
+targetCompatibility = '11'
 
 configurations {
 	compileOnly {
@@ -34,15 +36,15 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
+bootJar {
+    mainClassName = 'org.nec.NationalElectricCompanyApplication'
+}
+
 test {
 	useJUnitPlatform()
 }
 
-bootJar {
-    launchScript()
-}
-
-jar{
+jar {
     baseName = 'national-electric-company-auth-server' 
     version = '1.0'
 }
