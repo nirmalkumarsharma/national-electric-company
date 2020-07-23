@@ -1,6 +1,6 @@
 package org.nec.service;
 
-import org.nec.payload.TokenResponse;
+import org.nec.payload.response.TokenResponse;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;

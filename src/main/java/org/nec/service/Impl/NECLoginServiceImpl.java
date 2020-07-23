@@ -5,7 +5,7 @@ import java.util.List;
 import org.nec.config.NECKeyConfig;
 import org.nec.entity.NECEmployee;
 import org.nec.payload.NECEmployeeDetails;
-import org.nec.payload.TokenResponse;
+import org.nec.payload.response.TokenResponse;
 import org.nec.repository.NECEmployeeRepository;
 import org.nec.service.NECLoginService;
 import org.nec.util.JWTUtil;

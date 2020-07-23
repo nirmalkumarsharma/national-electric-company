@@ -1,8 +1,12 @@
 package org.nec.service.Impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.nec.entity.NECEmployee;
-import org.nec.payload.NECEmployeePayload;
-import org.nec.payload.NECRegistrationResponse;
+import org.nec.payload.NECEmployeeDetails;
+import org.nec.payload.request.NECEmployeePayload;
+import org.nec.payload.response.NECRegistrationResponse;
 import org.nec.repository.NECEmployeeRepository;
 import org.nec.service.NECRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +39,13 @@ public class NECRegistrationServiceImpl implements NECRegistrationService {
 		necRegistrationResponse.setStatusCode(HttpStatus.OK.toString());
 		necRegistrationResponse.setMessage("User Registered Successfully");
 		return necRegistrationResponse;
+	}
+
+	@Override
+	public List<NECEmployeeDetails> getUsers() {
+		List<NECEmployee> employees = necEmployeeRepository.findAll();
+		List<NECEmployeeDetails> necEmployeeDetails = new ArrayList<>();
+		employees.stream().forEach(x-> necEmployeeDetails.add( new NECEmployeeDetails(x.getNecName(), x.getNecEmail())));
+		return necEmployeeDetails;
 	}
 }

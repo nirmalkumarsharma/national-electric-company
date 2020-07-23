@@ -1,4 +1,4 @@
-package org.nec.payload;
+package org.nec.payload.request;
 
 import lombok.Data;
 
