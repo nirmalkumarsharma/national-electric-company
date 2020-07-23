@@ -21,9 +21,7 @@ spring:
       path: /api
   jpa:
     hibernate:
-      ddl-auto: create
-    show-sql: true
-    generate-ddl: true
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
