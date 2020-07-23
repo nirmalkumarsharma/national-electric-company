@@ -8,7 +8,7 @@ group = 'in.nec'
 version = '1.0'
 
 sourceCompatibility = '11'
-targetCompatibility = '11'
+targetCompatibility = 1.8
 
 configurations {
 	compileOnly {
@@ -25,6 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
 	compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.1'
 	runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.1'
 	runtime group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.1'
