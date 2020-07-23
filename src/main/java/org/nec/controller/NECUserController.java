@@ -46,7 +46,7 @@ public class NECUserController {
 		return new ResponseEntity<>(tokenResponse, HttpStatus.OK);
 	}
 	
-	@GetMapping(path = "/users",  produces = {"application/json"})
+	@GetMapping(produces = {"application/json"})
 	public ResponseEntity<List<NECEmployeeDetails>> getUsersNEC() {
 		List<NECEmployeeDetails> users = necRegistrationService.getUsers();
 		return new ResponseEntity<>(users, HttpStatus.OK);
