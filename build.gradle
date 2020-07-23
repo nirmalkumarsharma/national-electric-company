@@ -37,9 +37,11 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-springBoot { 
-    executable = true 
+
+bootJar {
+    launchScript()
 }
+
 jar{
     baseName = 'national-electric-company-auth-server' 
     version = '1.0'
